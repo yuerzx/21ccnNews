@@ -17,7 +17,7 @@ require "class/user_class.php";
 require_once 'class/PHPMailerAutoload.php';
 
 global $wpdb;
-$table_game_user_one = $wpdb->prefix.'oneuni_games_user_one';
+$table_game_user_one = $wpdb->prefix.'oneuni_21ccn_user';
 global $table_game_user_one;
 global $user_class;
 

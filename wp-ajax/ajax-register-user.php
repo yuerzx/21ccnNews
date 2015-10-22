@@ -18,24 +18,14 @@ if ( isset( $_POST['game_name_ver'] ) && wp_verify_nonce( $_POST['game_name_ver'
             array(
                 'sName'         => $name,
                 'sPhone'        => $phone,
-                'sEmail'        => $email,
-                'sSchool'       => $_POST['sSchool'],
-                'sGraduateM'    => $_POST['sGraduateM'],
-                'sGraduateY'    => $_POST['sGraduateY'],
-                'sBirthD'       => $_POST['sBirthD'],
-                'sBirthM'       => $_POST['sBirthM'],
-                'sSubject'      => $_POST['sSubject']
+                'sEmail'        => $email
+
             ),
             array(
                 '%s',
                 '%s',
-                '%s',
-                '%d',
-                '%d',
-                '%d',
-                '%d',
-                '%d',
                 '%s'
+
             )
         );
         if ($result === false || $result == 0){
