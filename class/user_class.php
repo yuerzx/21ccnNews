@@ -8,7 +8,7 @@
  */
 class User_Class
 {
-    private $wpdb, $table_21ccn_users;
+    private $wpdb, $table_21ccn_users, $table_21ccn_points;
 
     public function __construct()
     {
@@ -16,6 +16,7 @@ class User_Class
         $this->mail = new PHPMailer();
         $this->wpdb = &$wpdb;
         $this->table_21ccn_users = $this->wpdb->prefix.'oneuni_21ccn_users';
+        $this->table_21ccn_points = $this->wpdb->prefix.'oneuni_21ccn_points';
     }
 
     public function get_user_total_times_by_id($user_id)
@@ -112,6 +113,33 @@ class User_Class
         }
 
         return $em_ans;
+    }
+
+    public function add_user_points($user_id, $method, $points,$extra_info){
+        if(empty($extra_info)){
+            $extra_info = null;
+        }
+        $result = $this->wpdb->insert(
+            $this->table_21ccn_points,
+            array(
+                'user_id'         => $user_id,
+                'point_method'    => $method,
+                'point_get'       => $points,
+                'point_info'      => $extra_info
+
+            ),
+            array(
+                '%d',
+                '%d',
+                '%d',
+                '%s'
+            )
+        );
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
