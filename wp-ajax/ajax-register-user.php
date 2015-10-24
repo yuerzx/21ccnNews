@@ -4,7 +4,12 @@ require('../functions.php');
 $user_data = $_POST;
 global $user_class;
 
-if ( isset( $_POST['game_name_ver'] ) && wp_verify_nonce( $_POST['game_name_ver'], 'game_submit' ) && isset($user_data['sPhone'])) {
+if ( isset( $_POST['game_name_ver'] )
+    && wp_verify_nonce( $_POST['game_name_ver'], 'game_submit' )
+    && isset($user_data['sPhone'])
+    && isset($user_data['s21ccn'])
+    && isset($user_data['sQingnian'])
+    ) {
     //prepare data for process
     $phone  = esc_attr($_POST['sPhone']);
     $name  = esc_attr($_POST['sName']);
@@ -14,7 +19,7 @@ if ( isset( $_POST['game_name_ver'] ) && wp_verify_nonce( $_POST['game_name_ver'
     if( $user_phone_check == null){
         //conditon for number not existed
         $result = $wpdb->insert(
-            $table_game_user_one,
+            $table_21ccn_users,
             array(
                 'sName'         => $name,
                 'sPhone'        => $phone,

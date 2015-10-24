@@ -66,7 +66,7 @@ get_header("referral");
                                     <label class="col-md-4 control-label" for="sEmail">邮箱</label>
 
                                     <div class="col-md-4">
-                                        <input id="sEmail" name="sEmail" type="text" placeholder="请正确填写密码会发送到邮箱中"
+                                        <input id="sEmail" name="sEmail" type="text" placeholder="请正确填写，获奖信息会发送到邮箱中"
                                                class="form-control input-md" required="">
                                     </div>
                                 </div>
@@ -111,6 +111,7 @@ get_header("referral");
         <!-- end of #content-full -->
     </div>
 </div>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 <script>
     jQuery(document).ready(function () {
         console.log("*****WANT TO FIND OUT HOW TO DO IT? EMAIL: HANSUN@1230.ME *****");
@@ -138,7 +139,13 @@ get_header("referral");
                     var result = $('#result');
                     var name = $('#sName').val();
                     var email = $('#sEmail').val();
-                    if (phone && phone.length == 10 && isValidEmailAddress(email)) {
+                    var ccncode = $('#s21ccn').val();
+                    var qiannian = $('#sQingnian').val();
+                    var ccnhash = CryptoJS.MD5(ccncode);
+                    var qingnianhash = CryptoJS.MD5(qiannian);
+                    if( ccnhash != "151dbc3973c16125d26e2ac41b67a4a9" || qingnianhash != "9912a6370a4b5fca0edb675b579d31c7"){
+                        $(warning1 + '邀请码不正确，请查看后重试，全部字母为小写' + warning2).hide().prependTo(result).show("slow");
+                    }else if (phone && phone.length == 10 && isValidEmailAddress(email)) {
                         $('#submit').prop('disabled', true).text("载入中.....请稍等");
                         $.ajax({
                             type: "POST",
@@ -151,7 +158,7 @@ get_header("referral");
                                     $('#user-form').hide(1000);
                                     result.hide();
                                     var s_title = "恭喜<b>" + name + "</b>登记成功";
-                                    var s_pass = "您的用户名是：" + "</b><br> 视频地址是: <a href='http://www.oneuni.com.au/wenbo-ielts-speaking-video/'>http://www.oneuni.com.au/wenbo-ielts-speaking-video/</a>" + "<br>您可以直接用您的邮箱登陆视频页面了！ 如果没收到邮件，请直接尝试登陆页面，谢谢。 在60秒后页面自动返回";
+                                    var s_pass = "稍后将会跳转到分享页面，您已经成功获得20点积分";
                                     $('#Call-Back-Title').html(s_title);
                                     $('#Call-Back-Contain').html(s_pass);
                                     $('#success').show(700);

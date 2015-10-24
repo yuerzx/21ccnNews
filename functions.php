@@ -17,9 +17,12 @@ require "class/user_class.php";
 require_once 'class/PHPMailerAutoload.php';
 
 global $wpdb;
-$table_game_user_one = $wpdb->prefix.'oneuni_21ccn_users';
-global $table_game_user_one;
+$table_21ccn_users = $wpdb->prefix.'oneuni_21ccn_users';
+global $table_21ccn_users;
 global $user_class;
 
-$user_class = new Game_Class();
+$user_class = new User_Class();
 
+function code_check($code, $length){
+    return substr(md5($code."oneu"),0,$length);
+}

@@ -6,23 +6,22 @@
  * Date: 29/06/2015
  * Time: 9:41 AM
  */
-class Game_Class
+class User_Class
 {
-    private $wpdb, $table_game_user_one;
+    private $wpdb, $table_21ccn_users;
 
     public function __construct()
     {
         global $wpdb;
-        global $table_game_user_one;
         $this->mail = new PHPMailer();
         $this->wpdb = &$wpdb;
-        $this->table_game_user_one = &$table_game_user_one;
+        $this->table_21ccn_users = $this->wpdb->prefix.'oneuni_21ccn_users';
     }
 
     public function get_user_total_times_by_id($user_id)
     {
         $query = $this->wpdb->prepare("
-            SELECT user_times_total FROM $this->table_game_user_one WHERE user_id = %d
+            SELECT user_times_total FROM $this->table_21ccn_users WHERE user_id = %d
         ",
             $user_id);
         $result = $this->wpdb->get_var($query);
@@ -34,7 +33,7 @@ class Game_Class
     {
         $id = intval($id);
         $query = $this->wpdb->prepare("
-            SELECT * FROM $this->table_game_user_one WHERE id = %s
+            SELECT * FROM $this->table_21ccn_users WHERE id = %s
         ",
             $id);
         $result = $this->wpdb->get_row($query, ARRAY_A);
@@ -45,7 +44,7 @@ class Game_Class
     {
         $email = esc_attr($email);
         $query = $this->wpdb->prepare("
-            SELECT * FROM $this->table_game_user_one WHERE sEmail = %s
+            SELECT * FROM $this->table_21ccn_users WHERE sEmail = %s
         ",
             $email);
         $result = $this->wpdb->get_row($query, ARRAY_A);
@@ -56,7 +55,7 @@ class Game_Class
     {
         $phone = esc_attr($phone);
         $query = $this->wpdb->prepare("
-            SELECT user_times_total, user_times_played, user_id, user_phone, user_start, user_end, user_score  FROM $this->table_game_user_one WHERE user_phone = %s
+            SELECT user_times_total, user_times_played, user_id, user_phone, user_start, user_end, user_score  FROM $this->table_21ccn_users WHERE user_phone = %s
         ",
             $phone);
         $result = $this->wpdb->get_row($query, ARRAY_A);
@@ -66,7 +65,7 @@ class Game_Class
     public function get_user_id_by_phone($phone)
     {
         $query = $this->wpdb->prepare("
-            SELECT id FROM $this->table_game_user_one WHERE sPhone = %s
+            SELECT id FROM $this->table_21ccn_users WHERE sPhone = %s
         ",
             $phone);
         $result = $this->wpdb->get_var($query);
