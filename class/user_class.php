@@ -19,22 +19,12 @@ class User_Class
         $this->table_21ccn_points = $this->wpdb->prefix.'oneuni_21ccn_points';
     }
 
-    public function get_user_total_times_by_id($user_id)
-    {
-        $query = $this->wpdb->prepare("
-            SELECT user_times_total FROM $this->table_21ccn_users WHERE user_id = %d
-        ",
-            $user_id);
-        $result = $this->wpdb->get_var($query);
-        return $result;
-    }
-
 
     public function get_user_info_by_id($id)
     {
         $id = intval($id);
         $query = $this->wpdb->prepare("
-            SELECT * FROM $this->table_21ccn_users WHERE id = %s
+            SELECT * FROM $this->table_21ccn_users WHERE user_id = %s
         ",
             $id);
         $result = $this->wpdb->get_row($query, ARRAY_A);
