@@ -24,7 +24,7 @@ get_header("referral");
 
                                     <div class="col-md-4">
                                         <input id="s21ccn" name="s21ccn" type="text" placeholder=""
-                                               class="form-control input-md" required="">
+                                               class="form-control input-md" required>
 
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@ get_header("referral");
 
                                     <div class="col-md-4">
                                         <input id="sQingnian" name="sQingnian" type="text" placeholder=""
-                                               class="form-control input-md" required="">
+                                               class="form-control input-md" required>
 
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@ get_header("referral");
         <!-- end of #content-full -->
     </div>
 </div>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 <script>
     jQuery(document).ready(function () {
         console.log("*****WANT TO FIND OUT HOW TO DO IT? EMAIL: HANSUN@1230.ME *****");
