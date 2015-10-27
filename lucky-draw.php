@@ -8,42 +8,17 @@ get_header("referral");
     <div class="col-lg-12">
 
         <div id="content-full">
-            <?php if (bi_get_data('enable_disable_breadcrumbs', '1') == '1') { ?>
-                <?php echo responsive_breadcrumb_lists(); ?>
-            <?php } ?>
 
             <article>
                 <header class="page-header text-center" style="margin-top: 20px;">
-                    <img src="img/system/header.png">
+                    <img src="img/system/duanzishou.gif">
                 </header>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>欢迎参与由澳洲侨报主办，多家媒体参与的分享拿大奖活动~</p>
-                    </div>
-                </div>
 
                 <section class="post-entry">
                     <div class="row">
-                        <div class="col-md-12">
-                            <a href="join.php" id="submit" name="submit" class="btn btn-primary btn-lg btn-block">
-                                注册参与
-                            </a>
-                        </div>
-                        <div class="col-md-12" style="padding-top: 20px;">
-                            <a href="duanzishou.php" id="submit" name="submit" class="btn btn-primary btn-lg btn-block">
-                                段子大赛
-                            </a>
-                        </div>
-                        <div class="col-md-12" style="padding-top: 20px; ">
-                            <a href="lucky-draw.php" id="submit" name="submit" class="btn btn-primary btn-lg btn-block">
-                                <i class="fa fa-diamond"></i> 积分抽奖
-                            </a>
-                        </div>
-                        <div class="col-md-12" style="padding-top: 20px;padding-bottom: 20px;">
-                            <a href="join.php" id="submit" name="submit" class="btn btn-primary btn-lg btn-block">
-                                排行榜
-                            </a>
-                        </div>
+                        <div class="col-xs-4">Lucky 1</div>
+                        <div class="col-xs-4">Lucky 2</div>
+                        <div class="col-xs-4">Lucky 3</div>
                     </div>
                     <?php include('footer-logo.php');?>
                 </section>

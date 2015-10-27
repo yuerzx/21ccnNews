@@ -132,4 +132,26 @@ class User_Class
         }
     }
 
+    public function add_giftcard($user_id, $giftcard_status, $giftcard_type){
+        $result = $this->wpdb->insert(
+            $this->table_21ccn_giftcards,
+            array(
+                'giftcard_user'         => $user_id,
+                'giftcard_status'       => $giftcard_status,
+                'giftcard_type'         => $giftcard_type
+            ),
+            array(
+                '%d',
+                '%d',
+                '%s'
+            )
+        );
+        if($result){
+            return true;
+        }else{
+            return false;
+        }
+        $last_id = $this-> wpdb ->insert_id;
+        return $last_id;
+    }
 }
